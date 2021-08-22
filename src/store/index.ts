@@ -1,12 +1,13 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
+
+import userInfo from "./modules/userInfo";
+import loginState from "./modules/loginState";
+import searchKeyword from "./modules/searchKeyword";
 
 export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+	modules: {
+		userInfo,
+		loginState,
+		searchKeyword,
+	},
+});

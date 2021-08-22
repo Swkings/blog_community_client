@@ -1,0 +1,51 @@
+{
+  "id": "2677898",
+  "name": "Swk-Icon",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4765731",
+      "name": "copyright",
+      "font_class": "copyright",
+      "unicode": "e77e",
+      "unicode_decimal": 59262
+    },
+    {
+      "icon_id": "4765887",
+      "name": "poweroff",
+      "font_class": "poweroff",
+      "unicode": "e78c",
+      "unicode_decimal": 59276
+    },
+    {
+      "icon_id": "4765897",
+      "name": "location",
+      "font_class": "location",
+      "unicode": "e790",
+      "unicode_decimal": 59280
+    },
+    {
+      "icon_id": "4937000",
+      "name": "github-fill",
+      "font_class": "github-fill",
+      "unicode": "e885",
+      "unicode_decimal": 59525
+    },
+    {
+      "icon_id": "11269056",
+      "name": "search 搜索 查找",
+      "font_class": "search",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "20843184",
+      "name": "self _account",
+      "font_class": "self_account",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    }
+  ]
+}

@@ -3,15 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 3001",
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@kangc/v-md-editor": "^2.3.7",
+    "axios": "^0.21.1",
+    "clipboard": "^2.0.8",
+    "nprogress": "^0.2.0",
     "vue": "^3.0.0",
+    "vue-cookies": "^1.7.4",
     "vue-router": "^4.0.0-0",
+    "vue3-json-viewer": "^1.0.4",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@types/nprogress": "^0.2.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",

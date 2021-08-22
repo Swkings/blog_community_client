@@ -1,0 +1,83 @@
+
+@hostname = http://localhost
+@port = 9200
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+# 查看集群健康状态
+GET http://localhost:9200/_cat/indices?v
+
+###
+# 查看节点
+GET http://localhost:9200/_cat/nodes?v
+
+###
+# 查看索引
+GET http://localhost:9200/_cat/indices?v
+
+###
+# 增加索引test
+PUT http://localhost:9200/test/_doc/1
+Content-Type: {{contentType}}
+
+{
+    "title": "互联网求职",
+    "content": "寻求一份运营的岗位"
+}
+
+###
+# 查找
+GET http://localhost:9200/test/_doc/3
+
+
+###
+# 删除索引test
+DELETE {{host}}/test/_doc/1
+
+###
+# 搜索
+GET {{host}}/test/_search
+
+###
+# 搜索
+GET {{host}}/test/_search?q=title:互联网
+
+###
+# 搜索
+GET {{host}}/test/_search?q=content:运营实习
+
+###
+# 搜索
+GET {{host}}/test/_search
+Content-Type: {{contentType}}
+
+{
+    "query": {
+        "multi_match": {
+            "query": "互联网",
+            "fields": ["title", "content"]
+        }
+    }
+}
+
+###
+# 搜索
+GET {{host}}/discusspost/_search
+
+###
+# 搜索
+GET {{host}}/discusspost/_doc/231
+
+###
+# 搜索
+GET {{host}}/discusspost/_search
+Content-Type: {{contentType}}
+
+{
+    "query": {
+        "multi_match": {
+            "query": "互联网寒冬",
+            "fields": ["title", "content"]
+        }
+    }
+}

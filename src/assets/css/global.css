@@ -1,0 +1,33 @@
+html,
+body, 
+#app {
+    height: 100%;
+    margin: 0;
+    padding: 0px;
+    font-family: "Kaiti";
+}
+
+em {
+    color: red;
+    font-style: normal;
+}
+
+.loading {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 30%;
+}
+
+.el-popover .el-popover {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-top: 50%;
+    color: red;
+    top: 150px;
+}
+
+/* 分页箭头居中 */
+.el-icon{
+    width: auto;
+}

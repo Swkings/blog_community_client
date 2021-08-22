@@ -1,0 +1,69 @@
+
+@hostname = http://localhost
+@port = 8080
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+# 测试统一异常
+GET http://localhost:8080/api/hello
+
+###
+GET http://localhost:8080/api/aa
+
+###
+GET http://localhost:8080/api
+    ?limit=6
+
+###
+GET http://localhost:8080/api/discuss/detail/275
+    ?limit=1
+    &current=1
+
+###
+GET http://localhost:8080/api/captcha
+
+###
+# POST参数必须要一个空行
+POST http://localhost:8080/api/login
+content-type: application/json
+
+{
+    "username": "Swking",
+    "password": "root",
+    "captchaCode": "wmf4"
+}
+
+###
+# POST参数必须要一个空行
+POST http://localhost:8080/api/login
+content-type: application/json
+
+{
+    "username": "aaa",
+    "password": "123456",
+    "captchaCode": "H0LM"
+}
+
+
+###
+# POST参数必须要一个空行
+GET http://localhost:8080/api/message/notice/list
+
+
+###
+# POST参数必须要一个空行
+GET http://localhost:8080/api/message/notice/detail/1
+
+
+###
+# 测试搜索功能
+GET {{host}}/api/search?keyword=互联网寒冬
+
+###
+# POST参数必须要一个空行
+POST http://localhost:8080/api/community/top
+content-type: application/json
+
+{
+    "id": 109,
+}
