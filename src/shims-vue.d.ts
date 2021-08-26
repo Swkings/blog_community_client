@@ -14,3 +14,4 @@ declare module '@kangc/v-md-editor/lib/plugins/line-number/index';
 declare module '@kangc/v-md-editor/lib/plugins/katex/cdn';
 
 declare module 'vue3-json-viewer';
+declare module 'echarts';

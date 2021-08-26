@@ -11,6 +11,9 @@ const urls: any = {
 	setDelete: "community/delete",
 	addComment: "comment/add",
 	like: "like",
-	uploadTsp: "tsp-solver/upload",
+	addTask: "tsp-solver/addTask",
+	myTask: "tsp-solver/myTask",
+	deleteTask: "tsp-solver/deleteTask",
+	viewSolution: "tsp-solver/viewSolution",
 };
 export default urls;

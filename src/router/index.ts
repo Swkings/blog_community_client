@@ -82,6 +82,12 @@ const routes: Array<RouteRecordRaw> = [
 						name: "MyTask",
 						component: () => import("../views/tsp-solver/myTask.vue"),
 					},
+					{
+						path: "/tsp-solver/viewSolution/:id",
+						name: "ViewSolution",
+						component: () => import("../views/tsp-solver/viewSolution.vue"),
+						props: true,
+					},
 				],
 			},
 			// Blog

@@ -10,6 +10,7 @@
     "@kangc/v-md-editor": "^2.3.7",
     "axios": "^0.21.1",
     "clipboard": "^2.0.8",
+    "echarts": "^5.1.2",
     "nprogress": "^0.2.0",
     "vue": "^3.0.0",
     "vue-cookies": "^1.7.4",

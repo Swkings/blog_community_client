@@ -43,6 +43,8 @@ import JsonViewer from "vue3-json-viewer";
 
 import VueCookies from "vue-cookies";
 
+import myCharts from "echarts";
+
 VMdEditor.use(githubTheme, {
 	Hljs: hljs,
 });
@@ -61,5 +63,6 @@ Vue.use(ElementPlus);
 Vue.use(VMdEditor);
 
 Vue.use(JsonViewer);
+Vue.use(myCharts);
 
 Vue.mount("#app");

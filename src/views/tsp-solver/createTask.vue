@@ -197,6 +197,7 @@
 		setup() {
 			const router = useRouter();
 			const uploadFiles = ref();
+			const cerateLeave = ref(false);
 			const state = reactive(
 				localStorage.tspState != undefined
 					? JSON.parse(localStorage.tspState)
@@ -207,7 +208,7 @@
 								TYPE: "",
 								DIMENSION: 1,
 								EDGE_WEIGHT_TYPE: "",
-								NODE_COORD_SECTION: [{ id: 1 }] as Array<I_Coord>,
+								NODE_COORD_SECTION: [{ id: 0 }] as Array<I_Coord>,
 							} as I_TSP,
 							formSet: {
 								height: 450,
@@ -260,11 +261,15 @@
 			onMounted(() => {
 				getTableHeight();
 				window.onbeforeunload = (e: any) => {
-					localStorage.tspState = JSON.stringify(state);
+					if (!cerateLeave.value) {
+						localStorage.tspState = JSON.stringify(state);
+					}
 				};
 			});
 			onBeforeRouteLeave((to, from, next) => {
-				localStorage.tspState = JSON.stringify(state);
+				if (!cerateLeave.value) {
+					localStorage.tspState = JSON.stringify(state);
+				}
 				next();
 			});
 
@@ -302,29 +307,33 @@
 				// 	console.log("item: ", item);
 				// });
 				// console.log("state.fileList: ", state.fileList);
-				let fileFormData = new FormData();
-				if (state.file != null) {
-					fileFormData.append("tspFile", state.file.raw, state.file.name);
-				}
+				// let fileFormData = undefined;
+				// let requestConfig = undefined;
+				// if (state.file != null) {
+				// 	fileFormData = new FormData();
+				// 	fileFormData.append("tspFile", state.file.raw, state.file.name);
+				// 	requestConfig = {
+				// 		headers: {
+				// 			"Content-Type": "multipart/form-data",
+				// 		},
+				// 	};
+				// 	console.log("fileFormData:");
+				// 	fileFormData.forEach((value, key) => {
+				// 		console.log(key, value);
+				// 	});
+				// } else {
+				// 	fileFormData = state.task;
+				// }
 
-				let requestConfig = {
-					headers: {
-						"Content-Type": "multipart/form-data",
-					},
-				};
-				console.log("uploadFiles: ", uploadFiles.value);
-				console.log("state.file: ", state.file);
-				fileFormData.forEach((value, key) => {
-					console.log(key, value);
-				});
-				const resData: I_ResponseData = await service.post(
-					urls.uploadTsp,
-					fileFormData,
-					requestConfig
-				);
+				// console.log("uploadFiles: ", uploadFiles.value);
+				// console.log("state.file: ", state.file);
+				// console.log("fileFormData: ", fileFormData);
+				// console.log("requestConfig: ", requestConfig);
+				const resData: I_ResponseData = await service.post(urls.addTask, state.task);
 				console.log("resData: ", resData);
 				messageHandle(resData, "创建");
 				if (resData.success) {
+					cerateLeave.value = true;
 					localStorage.removeItem("tspState");
 					router.push("/tsp-solver/myTask");
 				}

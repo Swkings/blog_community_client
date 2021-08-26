@@ -137,4 +137,20 @@ export interface I_TSP {
 	DIMENSION: number;
 	EDGE_WEIGHT_TYPE: string;
 	NODE_COORD_SECTION: Array<I_Coord>;
+	SOLUTION: Array<number>;
+}
+
+export interface I_TSPTask {
+	id: number; // 'id'
+	name: string;
+	comment: string;
+	type: string;
+	dimension: number; // '问题规模'
+	edgeWeightType: string; // '权重类型：EUC_2D，ATT..'
+	filePath: string; // '存储路径'
+	solutionFilePath: string; // '解决方案存储路径'
+	userId: number; // '用户id'
+	status: number; //  '状态：0：私有，1：公开'
+	progress: number; //  '任务完成进度：0-100'
+	createTime: string; //  '创建时间'
 }
